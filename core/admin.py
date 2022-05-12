@@ -15,8 +15,9 @@ class ArmaAdmin(admin.ModelAdmin):
 
 @admin.register(Municao)
 class MunicaoAdmin(admin.ModelAdmin):
-    list_display = ('marca', 'modelo', 'calibre_id', 'valor-estimado')
+    list_display = ('marca', 'modelo', 'calibre_id', 'valor_estimado')
+
 
 @admin.register(Calibre)
 class CalibreAdmin(admin.ModelAdmin):
-    list_display = ('desc_calibre', )
+    list_display = ('desc_calibre',)
