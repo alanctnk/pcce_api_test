@@ -25,7 +25,7 @@ class Calibre(Base):
 
 
 class Arma(Base):
-    calibre_id = models.ForeignKey(Calibre, related_name='armas', on_delete=models.CASCADE)
+    calibre = models.ForeignKey(Calibre, related_name='armas', on_delete=models.CASCADE, null=True)
     marca = models.CharField(max_length=64)
     modelo = models.CharField(max_length=64)
     quantidade_de_tiros = models.IntegerField()
@@ -41,7 +41,7 @@ class Arma(Base):
 
 
 class Municao(Base):
-    calibre_id = models.ForeignKey(Calibre, related_name='munições', on_delete=models.CASCADE)
+    calibre = models.ForeignKey(Calibre, related_name='munições', on_delete=models.CASCADE, null=True)
     marca = models.CharField(max_length=64)
     modelo = models.CharField(max_length=64)
     valor_estimado = models.FloatField()
@@ -55,4 +55,7 @@ class Municao(Base):
 
 
 class Objeto(models.Model):
-    objeto_tipo_id = models.ForeignKey(ObjetoTipo, related_name='objetos', on_delete=models.CASCADE)
+    objeto_tipo = models.ForeignKey(ObjetoTipo, related_name='objetos', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Objeto cod. {self.objeto_tipo}"

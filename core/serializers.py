@@ -3,6 +3,24 @@ from rest_framework import serializers
 from .models import Arma, Calibre, Municao, ObjetoTipo, Objeto
 
 
+class ObjetoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Objeto
+        fields = (
+            'id',
+            'objeto_tipo'
+        )
+
+
+class ObjTipoSreializer(serializers.ModelSerializer):
+    class Meta:
+        model = ObjetoTipo
+        fields = (
+            'id',
+            'desc_calibre'
+        )
+
+
 class ArmaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Arma
@@ -10,7 +28,7 @@ class ArmaSerializer(serializers.ModelSerializer):
             'id',
             'marca',
             'modelo',
-            'calibre_id',
+            'calibre',
             'quantidade_de_tiros',
             'valor_estimado'
         )
@@ -23,7 +41,8 @@ class MunicaoSerializer(serializers.ModelSerializer):
             'id',
             'marca',
             'modelo',
-            'calibre_id'
+            'valor_estimado',
+            'calibre'
         )
 
 
@@ -31,5 +50,6 @@ class CalibreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Calibre
         fields = (
+            'id',
             'desc_calibre',
         )
