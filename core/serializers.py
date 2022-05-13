@@ -12,7 +12,7 @@ class ObjetoSerializer(serializers.ModelSerializer):
         )
 
 
-class ObjTipoSreializer(serializers.ModelSerializer):
+class ObjTipoSerializer(serializers.ModelSerializer):
     class Meta:
         model = ObjetoTipo
         fields = (

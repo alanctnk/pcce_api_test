@@ -1,15 +1,15 @@
 from django.urls import path
+from rest_framework.routers import SimpleRouter
 
 from .views import *
 
+router = SimpleRouter()
+router.register('armas', ArmasAPIView)
+router.register('municoes', MunicoesAPIView)
+router.register('calibres', CalibresAPIView)
+router.register('objetos_tipo', ObjTiposAPIView)
+
 urlpatterns = [
-    path('armas/', ArmasAPIView.as_view(), name='armas'),
-    path('calibres/', CalibresAPIView.as_view(), name='calibres'),
-    path('municoes/', MunicoesAPIView.as_view(), name='municoes'),
-    path('objetos_tipo/', ObjTiposAPIView.as_view(), name='objetos_tipo'),
     path('objetos/', ObjCodAPIView.as_view(), name='objetos'),
-    path('armas/<int:pk>', ArmaPIView.as_view(), name='arma'),
-    path('municoes/<int:pk>', MunicaoAPIView.as_view(), name='municao'),
-    path('calibres/<int:pk>', CalibreAPIView.as_view(), name='calibre'),
-    path('objetos_tipo/<int:pk>', ObjTipoAPIView.as_view(), name='objeto_tipo')
+
 ]
