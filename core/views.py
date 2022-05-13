@@ -1,49 +1,29 @@
-from rest_framework import generics
+from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from .models import Arma, Municao, Calibre, ObjetoTipo, Objeto
-from .serializers import ArmaSerializer, MunicaoSerializer, CalibreSerializer, ObjTipoSreializer, ObjetoSerializer
+from .serializers import ArmaSerializer, MunicaoSerializer, CalibreSerializer, ObjTipoSerializer, ObjetoSerializer
 
 
-class ArmasAPIView(generics.ListCreateAPIView):
+class ArmasAPIView(viewsets.ModelViewSet):
     queryset = Arma.objects.all()
     serializer_class = ArmaSerializer
 
 
-class ArmaPIView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Arma.objects.all()
-    serializer_class = ArmaSerializer
-
-
-class MunicoesAPIView(generics.ListCreateAPIView):
+class MunicoesAPIView(viewsets.ModelViewSet):
     queryset = Municao.objects.all()
     serializer_class = MunicaoSerializer
 
 
-class MunicaoAPIView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Municao.objects.all()
-    serializer_class = MunicaoSerializer
-
-
-class CalibresAPIView(generics.ListCreateAPIView):
+class CalibresAPIView(viewsets.ModelViewSet):
     queryset = Calibre.objects.all()
     serializer_class = CalibreSerializer
 
 
-class CalibreAPIView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Calibre.objects.all()
-    serializer_class = CalibreSerializer
-
-
-class ObjTiposAPIView(generics.ListCreateAPIView):
+class ObjTiposAPIView(viewsets.ModelViewSet):
     queryset = ObjetoTipo.objects.all()
-    serializer_class = ObjTipoSreializer
-
-
-class ObjTipoAPIView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = ObjetoTipo.objects.all()
-    serializer_class = ObjTipoSreializer
+    serializer_class = ObjTipoSerializer
 
 
 class ObjCodAPIView(APIView):
