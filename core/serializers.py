@@ -17,7 +17,7 @@ class ObjTipoSreializer(serializers.ModelSerializer):
         model = ObjetoTipo
         fields = (
             'id',
-            'desc_calibre'
+            'tipo_de_objeto'
         )
 
 

@@ -11,5 +11,5 @@ urlpatterns = [
     path('armas/<int:pk>', ArmaPIView.as_view(), name='arma'),
     path('municoes/<int:pk>', MunicaoAPIView.as_view(), name='municao'),
     path('calibres/<int:pk>', CalibreAPIView.as_view(), name='calibre'),
-    path('objetos_tipo/<int:pk>', ObjTipoAPIView, name='objeto_tipo')
+    path('objetos_tipo/<int:pk>', ObjTipoAPIView.as_view(), name='objeto_tipo')
 ]

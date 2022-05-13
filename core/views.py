@@ -48,7 +48,7 @@ class ObjTipoAPIView(generics.RetrieveUpdateDestroyAPIView):
 
 class ObjCodAPIView(APIView):
     @staticmethod
-    def get():
+    def get(request):
         objeto = Objeto.objects.all()
         serializer = ObjetoSerializer(objeto, many=True)
         return Response(serializer.data)

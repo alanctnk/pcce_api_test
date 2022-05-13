@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.signals import post_save
 
 
 class Base(models.Model):
@@ -59,3 +60,12 @@ class Objeto(models.Model):
 
     def __str__(self):
         return f"Objeto cod. {self.objeto_tipo}"
+
+
+def save_objeto(sender, instance, created, **kwargs):
+    obj = sender.objects.latest('id')
+    if created:
+        Objeto.objects.create(objeto_tipo=obj)
+
+
+post_save.connect(save_objeto, sender=ObjetoTipo)
